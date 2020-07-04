@@ -83,21 +83,18 @@ class Ang3OdooExtension extends Extension
         $ormConfig = $config['orm'] ?? [];
         $managers = $ormConfig['managers'] ?? [];
         $objectManagerRegistry = new Definition(ObjectManagerRegistry::class);
+        $appCache = $container->hasDefinition('cache.app') ? new Reference('cache.app') : null;
 
         foreach ($managers as $connectionName => $managerConfig) {
             if (!isset($connections[$connectionName])) {
                 throw new InvalidArgumentException(sprintf('The Odoo connection "%s" was not found', $connectionName));
             }
 
-            $cache = $managerConfig['cache'] ?: [];
-            $schemaCache = $cache['schema'] ?? null;
-            $metadataCache = $cache['metadata'] ?? null;
-
             $objectManagerServiceName = sprintf('ang3_odoo.orm.object_manager.%s', $connectionName);
             $configurationServiceName = sprintf('%s.configuration', $objectManagerServiceName);
             $configuration = new Definition(OrmConfiguration::class, [
-                $schemaCache ? new Reference($schemaCache) : null,
-                $metadataCache ? new Reference($metadataCache) : null,
+                $appCache,
+                $appCache,
             ]);
             $container->setDefinition($configurationServiceName, $configuration);
 
