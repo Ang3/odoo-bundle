@@ -6,11 +6,14 @@ Odoo bundle
 [![Latest Unstable Version](https://poser.pugx.org/ang3/odoo-bundle/v/unstable)](https://packagist.org/packages/ang3/odoo-bundle) 
 [![Total Downloads](https://poser.pugx.org/ang3/odoo-bundle/downloads)](https://packagist.org/packages/ang3/odoo-bundle)
 
-Symfony integration of packages 
+This bundle is a Symfony integration of packages 
 [ang3/php-odoo-api-client](https://packagist.org/packages/ang3/php-odoo-api-client) and 
- [ang3/php-odoo-orm](https://packagist.org/packages/ang3/php-odoo-api-client). 
-This bundle allows you to manage clients by connection. 
-It provides a PHP object relational mapper (ORM) to manage your records as mapped objects.
+ [ang3/php-odoo-orm](https://packagist.org/packages/ang3/php-odoo-api-client).
+
+Main features :
+- Client registry
+- Object relational mapping (ORM)
+- Record validator
 
 Documentation of both packages:
 
