@@ -81,7 +81,7 @@ class Ang3OdooExtension extends Extension
         $container->setDefinition('ang3_odoo.client_registry', $clientRegistry);
 
         $ormConfig = $config['orm'] ?? [];
-        $objectManagerRegistry = $container->getDefinition(ObjectManagerRegistry::class);
+        $objectManagerRegistry = new Definition(ObjectManagerRegistry::class);
 
         foreach ($ormConfig as $connectionName => $managerConfig) {
             if (!isset($connections[$connectionName])) {
