@@ -81,9 +81,10 @@ class Ang3OdooExtension extends Extension
         $container->setDefinition('ang3_odoo.client_registry', $clientRegistry);
 
         $ormConfig = $config['orm'] ?? [];
+        $managers = $ormConfig['managers'] ?? [];
         $objectManagerRegistry = new Definition(ObjectManagerRegistry::class);
 
-        foreach ($ormConfig as $connectionName => $managerConfig) {
+        foreach ($managers as $connectionName => $managerConfig) {
             if (!isset($connections[$connectionName])) {
                 throw new InvalidArgumentException(sprintf('The Odoo connection "%s" was not found', $connectionName));
             }
@@ -123,7 +124,7 @@ class Ang3OdooExtension extends Extension
 
         $cacheWarmer = new Definition(CacheWarmer::class, [
             new Reference('ang3_odoo.orm.object_manager_registry'),
-            $ormConfig,
+            $managers,
         ]);
         $cacheWarmer->addTag('kernel.cache_warmer');
         $container->setDefinition('ang3_odoo.orm.cache_warmer', $cacheWarmer);
