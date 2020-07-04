@@ -1,18 +1,23 @@
-OdooApiBundle
-=============
+Odoo bundle
+===========
 
-[![Build Status](https://travis-ci.org/Ang3/odoo-api-bundle.svg?branch=master)](https://travis-ci.org/Ang3/odoo-api-bundle) 
-[![Latest Stable Version](https://poser.pugx.org/ang3/odoo-api-bundle/v/stable)](https://packagist.org/packages/ang3/odoo-api-bundle) 
-[![Latest Unstable Version](https://poser.pugx.org/ang3/odoo-api-bundle/v/unstable)](https://packagist.org/packages/ang3/odoo-api-bundle) 
-[![Total Downloads](https://poser.pugx.org/ang3/odoo-api-bundle/downloads)](https://packagist.org/packages/ang3/odoo-api-bundle)
+[![Build Status](https://travis-ci.org/Ang3/odoo-bundle.svg?branch=master)](https://travis-ci.org/Ang3/odoo-bundle) 
+[![Latest Stable Version](https://poser.pugx.org/ang3/odoo-bundle/v/stable)](https://packagist.org/packages/ang3/odoo-bundle) 
+[![Latest Unstable Version](https://poser.pugx.org/ang3/odoo-bundle/v/unstable)](https://packagist.org/packages/ang3/odoo-bundle) 
+[![Total Downloads](https://poser.pugx.org/ang3/odoo-bundle/downloads)](https://packagist.org/packages/ang3/odoo-bundle)
 
-Symfony integration of the package 
-[ang3/php-odoo-api-client](https://packagist.org/packages/ang3/php-odoo-api-client) - 
-Please read the [documentation of the client](https://github.com/Ang3/php-odoo-api-client) 
-to know how to use it.
+Symfony integration of packages 
+[ang3/php-odoo-api-client](https://packagist.org/packages/ang3/php-odoo-api-client) and 
+ [ang3/php-odoo-orm](https://packagist.org/packages/ang3/php-odoo-api-client). 
+This bundle allows you to manage clients by connection. 
+It provides a PHP object relational mapper (ORM) to manage your records as mapped objects.
 
-This bundle helps you to manage your Odoo connections by providing a registry 
-and your clients as services.
+Documentation of both packages:
+
+| Package | Documentation |
+| --- | --- |
+| ang3/php-odoo-api-client | [https://github.com/Ang3/php-odoo-api-client](https://github.com/Ang3/php-odoo-api-client)
+| ang3/php-odoo-orm | [https://github.com/Ang3/php-odoo-orm](https://github.com/Ang3/php-odoo-orm)
 
 Installation
 ============
@@ -24,7 +29,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```console
-$ composer require ang3/odoo-api-bundle
+$ composer require ang3/odoo-bundle
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -50,7 +55,7 @@ class AppKernel extends Kernel
   {
     $bundles = array(
       // ...
-      new Ang3\Bundle\OdooApiBundle\Ang3OdooApiBundle(),
+      new Ang3\Bundle\OdooBundle\Ang3OdooBundle(),
     );
 
     // ...
@@ -95,7 +100,7 @@ If you want to work with all your configured clients, then you may want to get t
 It stores all configured clients by connection name. You can get it by dependency injection:
 
 ```php
-use Ang3\Bundle\OdooApiBundle\ClientRegistry;
+use Ang3\Bundle\OdooBundle\ClientRegistry;
 
 class MyService
 {
@@ -163,6 +168,11 @@ MyClass:
 For each client, the bundle creates a public alias following this naming convention: 
 ```ang3_odoo_api.client.<connection_name>```.
 
+ORM
+---
+
+*Writing in progress*
+
 Validator
 ---------
 
@@ -173,7 +183,7 @@ to validate a record by ID, domains and/or connection. It resides to a basic ann
 Here is an example of an object storing the ID of a company and invoice:
 
 ```php
-use Ang3\Bundle\OdooApiBundle\Validator\Constraints\OdooRecord;
+use Ang3\Bundle\OdooBundle\Validator\Constraints\OdooRecord;
 
 class MyEntity
 {
@@ -215,30 +225,14 @@ Here are the variable passed to the evaluated expression:
 - ```this``` the object that the property/getter belongs to
 - ```user``` the user of the request ```Symfony\Component\Security\Core\User\UserInterface|null```
 
-Upgrades
-========
+Upgrades & updates
+==================
 
-### v1.0.2
+### v1.0.0
 
-- Updated client version to ```v5.1.1``` (no BC).
-- Fixed logger injection.
-
-### v1.0.1
-
-- Added file ```Resources/config/services.yaml```
-- Fixed bundle extension
-- Configured bundle autowiring
-
-### From 1.* to 2.*
-
-What you have to do:
-- Follow upgrade instructions ```From 4.* to 5.*``` of the [client](https://github.com/Ang3/php-odoo-api-client#from-4-to-5)
-- Replace ```Ang3\Component\Odoo\ExternalApiClient``` with ```Ang3\Component\Odoo\Client```.
-- Create and use your own helpers.
-
-Logs:
-- Added Odoo record validator.
-- Updated composer.json for Symfony ```^5.0``` support.
-- Updated client to version ```5.0``` for latest feature (expression builder).
-- Implemented client parameter autowiring.
-- Deleted helpers before the model names depend on Odoo server version.
+- Client registry
+- ORM
+    - Registry
+    - Configuration
+    - Cache
+- Record validator
