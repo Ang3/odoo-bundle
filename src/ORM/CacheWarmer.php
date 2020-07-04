@@ -17,9 +17,11 @@ class CacheWarmer implements CacheWarmerInterface
     }
 
     /**
+     * @param string $cacheDir
+     *
      * @throws RuntimeException on cache failure
      */
-    public function warmUp(string $cacheDir): array
+    public function warmUp($cacheDir): array
     {
         foreach ($this->config as $managerName => $managerConfig) {
             $paths = $managerConfig['paths'] ?? [];
