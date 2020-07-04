@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0b7021212c3adab6f3aabc692ec310e",
+    "content-hash": "f9638b8fe3a959f353825d72992578f8",
     "packages": [
         {
             "name": "ang3/php-odoo-api-client",
@@ -68,7 +68,7 @@
         },
         {
             "name": "ang3/php-odoo-orm",
-            "version": "dev-master",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ang3/php-odoo-orm.git",
@@ -4565,7 +4565,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ang3/php-odoo-orm": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
