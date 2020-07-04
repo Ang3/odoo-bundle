@@ -10,9 +10,10 @@ This bundle is a Symfony integration of packages
 [ang3/php-odoo-api-client](https://packagist.org/packages/ang3/php-odoo-api-client) and 
  [ang3/php-odoo-orm](https://packagist.org/packages/ang3/php-odoo-api-client).
 
-Main features :
+**Main features:**
 - Client registry
 - Object relational mapping (ORM)
+- Debugging commands
 - Record validator
 
 Documentation of both packages:
