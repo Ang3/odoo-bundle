@@ -1,0 +1,26 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+  Ang3\Bundle\OdooBundle\:
+    resource: '../../*'
+    exclude: '../../DependencyInjection,Resources}'
+
+  # Cache warmer
+  Ang3\Bundle\OdooBundle\ORM\CacheWarmer:
+    tags:
+      - { name: kernel.cache_warmer }
+
+  # Connection clients registry
+  ang3_odoo.client_registry:
+    alias: Ang3\Bundle\OdooBundle\Connection\ClientRegistry
+    public: true
+
+  # Object managers registry
+  ang3_odoo.orm.object_manager_registry:
+    alias: Ang3\Bundle\OdooBundle\ORM\ObjectManagerRegistry
+    public: true

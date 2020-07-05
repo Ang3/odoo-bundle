@@ -3,16 +3,17 @@
 namespace Ang3\Bundle\OdooBundle\DependencyInjection;
 
 use Ang3\Bundle\OdooBundle\Connection\ClientRegistry;
-use Ang3\Bundle\OdooBundle\ORM\CacheWarmer;
 use Ang3\Bundle\OdooBundle\ORM\ObjectManagerRegistry;
 use Ang3\Component\Odoo\Client;
 use Ang3\Component\Odoo\ORM\Configuration as OrmConfiguration;
 use Ang3\Component\Odoo\ORM\ObjectManager;
 use Doctrine\Common\Annotations\Reader;
 use Exception;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
@@ -34,6 +35,9 @@ class Ang3OdooExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('ang3_odoo.parameters', $config);
 
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yaml');
+
         $this->loadOdooConfiguration($container, $config);
     }
 
@@ -47,7 +51,7 @@ class Ang3OdooExtension extends Extension
         }
 
         $connections = $config['connections'] ?? [];
-        $clientRegistry = new Definition(ClientRegistry::class);
+        $clientRegistry = $container->getDefinition(ClientRegistry::class);
 
         foreach ($connections as $connectionName => $params) {
             $loggerServiceName = $params['logger'] ?: $config['default_logger'];
@@ -77,12 +81,9 @@ class Ang3OdooExtension extends Extension
             $clientRegistry->addMethodCall('add', [$connectionName, $clientReference]);
         }
 
-        $clientRegistry->setPublic(true);
-        $container->setDefinition('ang3_odoo.client_registry', $clientRegistry);
-
         $ormConfig = $config['orm'] ?? [];
         $managers = $ormConfig['managers'] ?? [];
-        $objectManagerRegistry = new Definition(ObjectManagerRegistry::class);
+        $objectManagerRegistry = $container->getDefinition(ObjectManagerRegistry::class);
         $appCache = $container->hasDefinition('cache.app') ? new Reference('cache.app') : null;
 
         foreach ($managers as $connectionName => $managerConfig) {
@@ -115,16 +116,6 @@ class Ang3OdooExtension extends Extension
             $objectManagerReference = new Reference($objectManagerServiceName);
             $objectManagerRegistry->addMethodCall('add', [$connectionName, $objectManagerReference]);
         }
-
-        $objectManagerRegistry->setPublic(true);
-        $container->setDefinition('ang3_odoo.orm.object_manager_registry', $objectManagerRegistry);
-
-        $cacheWarmer = new Definition(CacheWarmer::class, [
-            new Reference('ang3_odoo.orm.object_manager_registry'),
-            $managers,
-        ]);
-        $cacheWarmer->addTag('kernel.cache_warmer');
-        $container->setDefinition('ang3_odoo.orm.cache_warmer', $cacheWarmer);
     }
 
     private function formatClientServiceName(string $connectionName): string
