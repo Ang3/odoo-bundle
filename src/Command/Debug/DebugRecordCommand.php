@@ -34,7 +34,7 @@ class DebugRecordCommand extends Command
             ->setDescription('Debug record by model name and id')
             ->addArgument('model_name', InputArgument::REQUIRED, 'Entity name')
             ->addArgument('record_id', InputArgument::REQUIRED, 'Record ID')
-            ->addOption('connection', 'c', InputOption::VALUE_OPTIONAL, 'default')
+            ->addOption('connection', 'c', InputOption::VALUE_OPTIONAL, 'Connection to use', 'default')
         ;
     }
 

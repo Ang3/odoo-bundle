@@ -32,7 +32,7 @@ class DebugModelCommand extends Command
         $this
             ->setDescription('Debug model and fields')
             ->addArgument('model_name', InputArgument::REQUIRED, 'Entity name')
-            ->addOption('connection', 'c', InputOption::VALUE_OPTIONAL, 'default')
+            ->addOption('connection', 'c', InputOption::VALUE_OPTIONAL, 'Connection to use', 'default')
         ;
     }
 
