@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0d1019ba-e2c7-4940-97e9-67bb75bea3e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DependencyInjection/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DependencyInjection/Configuration.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="composer" />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpxmlrpc/phpxmlrpc" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/php-cs-fixer/diff" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/ang3/php-dev-binaries" />
+      <path value="$PROJECT_DIR$/vendor/ang3/php-odoo-api-client" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-doctrine" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan-symfony" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/ang3/php-odoo-orm" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/package-versions" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1cgG8D3xi1MvSUPv2ILPNzPchME" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ang3\Documents\GitHub\ang3\odoo-bundle\src\ORM" />
+      <recent name="C:\Users\Ang3\Documents\GitHub\ang3\odoo-bundle\src" />
+      <recent name="C:\Users\Ang3\Documents\GitHub\ang3\odoo-bundle\src\Connection" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Ang3\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d1019ba-e2c7-4940-97e9-67bb75bea3e8" name="Default Changelist" comment="" />
+      <created>1590942661663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590942661663</updated>
+      <workItem from="1590942663125" duration="751000" />
+      <workItem from="1590943429563" duration="1261000" />
+      <workItem from="1590945019015" duration="62000" />
+      <workItem from="1590945093258" duration="43000" />
+      <workItem from="1590945157538" duration="274000" />
+      <workItem from="1591044542415" duration="3103000" />
+      <workItem from="1591094126502" duration="12000" />
+      <workItem from="1591095826902" duration="1232000" />
+      <workItem from="1591097861368" duration="600000" />
+      <workItem from="1593467949455" duration="3343000" />
+      <workItem from="1593515999896" duration="91000" />
+      <workItem from="1593860875273" duration="10404000" />
+      <workItem from="1593884504959" duration="2728000" />
+      <workItem from="1593888264883" duration="7000" />
+      <workItem from="1593894442698" duration="4000" />
+      <workItem from="1593894824984" duration="6000" />
+      <workItem from="1593982491642" duration="132000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/odoo-bundle" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="188" key="#Inspections" timestamp="1593884630357">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="586" y="188" key="#Inspections/0.0.1920.1019@0.0.1920.1019" timestamp="1593884630357" />
+    <state x="717" y="313" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590944440200">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="717" y="313" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1590944440199" />
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1593869691018">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1019@0.0.1920.1019" timestamp="1593869691018" />
+    <state x="551" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593871393065">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="551" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1593871393065" />
+    <state x="690" y="264" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593884791829">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="690" y="264" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1593884791829" />
+    <state x="741" y="422" key="ComposerInitDialogKey" timestamp="1590942689073">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="741" y="422" key="ComposerInitDialogKey/0.0.1920.1019@0.0.1920.1019" timestamp="1590942689073" />
+    <state x="707" y="233" key="NewPhpClassDialog" timestamp="1593861950234">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="707" y="233" key="NewPhpClassDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1593861950234" />
+    <state x="476" y="155" key="SettingsEditor" timestamp="1593872306350">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="476" y="155" key="SettingsEditor/0.0.1920.1019@0.0.1920.1019" timestamp="1593872306350" />
+    <state x="670" y="220" width="579" height="578" key="find.popup" timestamp="1593888270083">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="670" y="220" width="579" height="578" key="find.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1593888270083" />
+    <state x="623" y="219" width="672" height="678" key="search.everywhere.popup" timestamp="1593862290693">
+      <screen x="0" y="0" width="1920" height="1019" />
+    </state>
+    <state x="623" y="219" width="672" height="678" key="search.everywhere.popup/0.0.1920.1019@0.0.1920.1019" timestamp="1593862290693" />
+  </component>
+</project>
