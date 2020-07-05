@@ -113,7 +113,7 @@ class Ang3OdooExtension extends Extension
             }
 
             $objectManagerReference = new Reference($objectManagerServiceName);
-            $clientRegistry->addMethodCall('add', [$connectionName, $objectManagerReference]);
+            $objectManagerRegistry->addMethodCall('add', [$connectionName, $objectManagerReference]);
         }
 
         $objectManagerRegistry->setPublic(true);

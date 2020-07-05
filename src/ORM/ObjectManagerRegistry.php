@@ -12,26 +12,26 @@ class ObjectManagerRegistry
      */
     private array $managers = [];
 
-    public function add(string $name, ObjectManager $objectManager): void
+    public function add(string $connectionName, ObjectManager $objectManager): void
     {
-        if ($this->has($name)) {
-            throw new RuntimeException(sprintf('The Odoo ORM manager "%s" is already registered', $name));
+        if ($this->has($connectionName)) {
+            throw new RuntimeException(sprintf('The Odoo ORM manager "%s" is already registered', $connectionName));
         }
 
-        $this->managers[$name] = $objectManager;
+        $this->managers[$connectionName] = $objectManager;
     }
 
-    public function get(string $name): ObjectManager
+    public function get(string $connectionName): ObjectManager
     {
-        if (!$this->has($name)) {
-            throw new RuntimeException(sprintf('The Odoo ORM manager "%s" was not found', $name));
+        if (!$this->has($connectionName)) {
+            throw new RuntimeException(sprintf('The Odoo ORM manager "%s" was not found', $connectionName));
         }
 
-        return $this->managers[$name];
+        return $this->managers[$connectionName];
     }
 
-    public function has(string $name): bool
+    public function has(string $connectionName): bool
     {
-        return array_key_exists($name, $this->managers);
+        return array_key_exists($connectionName, $this->managers);
     }
 }
