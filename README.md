@@ -72,21 +72,41 @@ class AppKernel extends Kernel
 Step 3: Configure your app
 --------------------------
 
-Depends on your symfony version, enable the configuration of the bundle:
+#### Default connection
+
+Just set needed ```.env``` vars:
+
+```.dotenv
+ODOO_API_URL=
+ODOO_API_DATABASE=
+ODOO_API_USERNAME=
+ODOO_API_PASSWORD=
+```
+
+#### Work with multiple connections (optional)
+
+Here is the default configuration and an example for a second connection:
 
 ```yaml
 # app/config/config.yml or config/packages/ang3_odoo_api.yaml
 ang3_odoo_api:
   default_connection: default
-  default_logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface
-  # If set, the default logger is used if no logger was set for a connection
+  default_logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface (optional)
+  # If set, the default logger is used if a connection hasn't one
   connections:
     default:
-      url: <database_url>
-      database: <database_name>
-      user: <username>
-      password: <password>
-      logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface
+      url: '%env(resolve:ODOO_API_URL)%'
+      database: '%env(resolve:ODOO_API_DATABASE)%'
+      user: '%env(resolve:ODOO_API_USERNAME)%'
+      password: '%env(resolve:ODOO_API_PASSWORD)%'
+      logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface (optional)
+    # Add connections here...
+    # second_connection:
+    #   url: '...'
+    #   database: '...'
+    #   user: '...'
+    #   password: '...'
+    #   logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface (optional)
 ```
 
 The parameter ```default_connection``` is used to define the default connection to use.
