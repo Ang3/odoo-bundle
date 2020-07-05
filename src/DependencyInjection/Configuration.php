@@ -29,10 +29,16 @@ class Configuration implements ConfigurationInterface
                     ->defaultNull()
                 ->end()
                 ->arrayNode('connections')
-                    ->addDefaultChildrenIfNoneSet()
+                    ->defaultValue([
+                        'default' => [
+                            'url' => '%env(resolve:ODOO_API_URL)%',
+                            'database' => '%env(resolve:ODOO_API_DATABASE)%',
+                            'user' => '%env(resolve:ODOO_API_USERNAME)%',
+                            'password' => '%env(resolve:ODOO_API_PASSWORD)%',
+                        ]
+                    ])
                     ->useAttributeAsKey('name')
                     ->arrayPrototype()
-                        ->addDefaultsIfNotSet()
                         ->children()
                             ->scalarNode('url')
                                 ->defaultValue('%env(resolve:ODOO_API_URL)%')
