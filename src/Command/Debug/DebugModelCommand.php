@@ -6,6 +6,7 @@ use Ang3\Bundle\OdooBundle\Connection\ClientRegistry;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
@@ -31,6 +32,7 @@ class DebugModelCommand extends Command
         $this
             ->setDescription('Debug model and fields')
             ->addArgument('model_name', InputArgument::REQUIRED, 'Entity name')
+            ->addOption('connection', 'c', InputOption::VALUE_OPTIONAL, 'default')
         ;
     }
 
@@ -42,7 +44,7 @@ class DebugModelCommand extends Command
         $modelName = $input->getArgument('model_name');
 
         /** @var bool|int|float|string $connectionName */
-        $connectionName = $input->getArgument('connection');
+        $connectionName = $input->getOption('connection');
         $connectionName = (string) $connectionName;
 
         try {

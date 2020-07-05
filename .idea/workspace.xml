@@ -12,7 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0d1019ba-e2c7-4940-97e9-67bb75bea3e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DependencyInjection/Ang3OdooExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DependencyInjection/Ang3OdooExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Debug/DebugModelCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/Debug/DebugModelCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Debug/DebugRecordCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/Debug/DebugRecordCommand.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +154,7 @@
       <workItem from="1593888264883" duration="7000" />
       <workItem from="1593894442698" duration="4000" />
       <workItem from="1593894824984" duration="6000" />
-      <workItem from="1593982491642" duration="2980000" />
+      <workItem from="1593982491642" duration="3415000" />
     </task>
     <servers />
   </component>
@@ -194,10 +195,10 @@
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
     <state x="551" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1593871393065" />
-    <state x="690" y="264" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593985095972">
+    <state x="690" y="264" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1593985921838">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
-    <state x="690" y="264" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1593985095972" />
+    <state x="690" y="264" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1019@0.0.1920.1019" timestamp="1593985921838" />
     <state x="741" y="422" key="ComposerInitDialogKey" timestamp="1590942689073">
       <screen x="0" y="0" width="1920" height="1019" />
     </state>
