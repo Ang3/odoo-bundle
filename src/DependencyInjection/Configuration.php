@@ -21,7 +21,6 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder
             ->getRootNode()
-            ->addDefaultChildrenIfNoneSet()
             ->children()
                 ->scalarNode('default_connection')
                     ->defaultValue('default')
@@ -30,9 +29,10 @@ class Configuration implements ConfigurationInterface
                     ->defaultNull()
                 ->end()
                 ->arrayNode('connections')
-                    ->requiresAtLeastOneElement()
+                    ->addDefaultChildrenIfNoneSet()
                     ->useAttributeAsKey('name')
                     ->arrayPrototype()
+                        ->addDefaultsIfNotSet()
                         ->children()
                             ->scalarNode('url')
                                 ->defaultValue('%env(resolve:ODOO_API_URL)%')
