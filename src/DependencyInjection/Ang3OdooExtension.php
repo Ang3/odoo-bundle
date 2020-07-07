@@ -33,22 +33,20 @@ class Ang3OdooExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter('ang3_odoo.parameters', $config);
 
+        $connections = $config['connections'] ?? [];
+        $container->setParameter('ang3_odoo.connections', $connections);
+
+        $orm = $config['orm'] ?? [];
+        $orm['managers'] = $orm['managers'] ?? [];
+        $container->setParameter('ang3_odoo.orm', $orm);
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yaml');
 
-        $this->loadOdooConfiguration($container, $config);
-    }
-
-    /**
-     * Load clients instances from connections params.
-     */
-    public function loadOdooConfiguration(ContainerBuilder $container, array $config): void
-    {
-        if (!array_key_exists($config['default_connection'], $config['connections'])) {
+        if (!array_key_exists($config['default_connection'], $connections)) {
             throw new InvalidArgumentException(sprintf('The default Odoo connection "%s" is not configured', $config['default_connection']));
         }
 
-        $connections = $config['connections'] ?? [];
         $clientRegistry = $container->getDefinition(ClientRegistry::class);
 
         foreach ($connections as $connectionName => $params) {
@@ -63,6 +61,7 @@ class Ang3OdooExtension extends Extension
                 $logger,
             ]);
 
+            $connectionName = (string) $connectionName;
             $clientName = $this->formatClientServiceName($connectionName);
             $container->setDefinition($clientName, $client);
             $container->registerAliasForArgument($clientName, Client::class, "$connectionName.client");
@@ -77,15 +76,14 @@ class Ang3OdooExtension extends Extension
             $clientRegistry->addMethodCall('add', [$connectionName, $clientReference]);
         }
 
-        $ormConfig = $config['orm'] ?? [];
-        $ormEnabled = $ormConfig['enabled'] ?? false;
+        $ormEnabled = $orm['enabled'] ?? false;
 
         if ($ormEnabled) {
-            $this->loadOdooOrm($container, $connections, $config['default_connection'], $ormConfig);
+            $this->loadOrm($container, $connections, $config['default_connection'], $orm);
         }
     }
 
-    public function loadOdooOrm(ContainerBuilder $container, array $connections, string $defaultConnection, array $config): void
+    public function loadOrm(ContainerBuilder $container, array $connections, string $defaultConnection, array $config): void
     {
         $managers = $config['managers'] ?? [];
         $objectManagerRegistry = $container->getDefinition(ObjectManagerRegistry::class);

@@ -12,6 +12,8 @@ services:
 
   # Cache warmer
   Ang3\Bundle\OdooBundle\ORM\CacheWarmer:
+    parameters:
+      $config: '%ang3_odoo.orm%'
     tags:
       - { name: kernel.cache_warmer }
 
