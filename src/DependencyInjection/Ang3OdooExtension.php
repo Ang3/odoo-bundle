@@ -56,12 +56,10 @@ class Ang3OdooExtension extends Extension
             $logger = $loggerServiceName ? new Reference($loggerServiceName) : null;
 
             $client = new Definition(Client::class, [
-                [
-                    $params['url'],
-                    $params['database'],
-                    $params['user'],
-                    $params['password'],
-                ],
+                $params['url'],
+                $params['database'],
+                $params['user'],
+                $params['password'],
                 $logger,
             ]);
 

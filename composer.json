@@ -18,7 +18,7 @@
     },
     "require": {
         "php": "^7.4",
-        "ang3/php-odoo-api-client": "^6.0",
+        "ang3/php-odoo-api-client": ">=6.0.1",
         "ang3/php-odoo-orm": "^0.1",
         "symfony/cache": ">=4.2",
         "symfony/console": ">=4.2",
