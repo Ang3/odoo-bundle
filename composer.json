@@ -21,6 +21,7 @@
         "ang3/php-odoo-api-client": "^6.0",
         "ang3/php-odoo-orm": "^0.1",
         "symfony/cache": ">=4.2",
+        "symfony/console": ">=4.2",
         "symfony/dependency-injection": ">=4.2",
         "symfony/config": ">=4.2",
         "symfony/http-kernel": ">=4.2",
