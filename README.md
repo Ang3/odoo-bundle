@@ -40,56 +40,14 @@ This command requires you to have Composer installed globally, as explained
 in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
 
-Step 2: Enable the Bundle
--------------------------
-
-**This step is done automatically on symfony ```>=4.0```**
-
-Then, enable the bundle by adding it to the list of registered bundles
-in the `app/AppKernel.php` file of your project:
-
-```php
-<?php
-// app/AppKernel.php
-
-// ...
-class AppKernel extends Kernel
-{
-  public function registerBundles()
-  {
-    $bundles = array(
-      // ...
-      new Ang3\Bundle\OdooBundle\Ang3OdooBundle(),
-    );
-
-    // ...
-  }
-
-  // ...
-}
-```
-
-Step 3: Configure your app
+Step 2: Configure your app
 --------------------------
 
-#### Default connection
-
-Just set needed ```.env``` vars:
-
-```.dotenv
-ODOO_API_URL=
-ODOO_API_DATABASE=
-ODOO_API_USERNAME=
-ODOO_API_PASSWORD=
-```
-
-#### Work with multiple connections (optional)
-
-Here is the default configuration and an example for a second connection:
+Create the file ```config/packages/ang3_odoo.yaml``` and paste the configuration below:
 
 ```yaml
-# app/config/config.yml or config/packages/ang3_odoo_api.yaml
-ang3_odoo_api:
+# app/config/config.yml or config/packages/ang3_odoo.yaml
+ang3_odoo:
   default_connection: default
   default_logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface (optional)
   # If set, the default logger is used if a connection hasn't one
@@ -100,22 +58,43 @@ ang3_odoo_api:
       user: '%env(resolve:ODOO_API_USERNAME)%'
       password: '%env(resolve:ODOO_API_PASSWORD)%'
       logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface (optional)
-    # Add connections here...
-    # second_connection:
-    #   url: '...'
-    #   database: '...'
-    #   user: '...'
-    #   password: '...'
-    #   logger: '<logger_service_name>' # Instance of \Psr\Log\LoggerInterface (optional)
+  orm:
+    enabled: false
+```
+
+Finally, set needed  ```.env``` vars to your project:
+
+```.dotenv
+ODOO_API_URL=
+ODOO_API_DATABASE=
+ODOO_API_USERNAME=
+ODOO_API_PASSWORD=
+```
+
+#### Work with multiple connections (optional)
+
+You can add more connection under section ```ang3_odoo.connections```.
+Here is an example for another connection:
+
+```yaml
+# app/config/config.yml or config/packages/ang3_odoo.yaml
+ang3_odoo:
+  # ...
+  connections:
+    default:
+      # ...
+    other_connection_name:
+      url: '...'
+      database: '...'
+      user: '...'
+      password: '...'
+      logger: '<logger_service_name>' # optional
 ```
 
 The parameter ```default_connection``` is used to define the default connection to use.
 
 Usage
 =====
-
-First, configure your connections in the package configuration file. 
-That should be done in step 3 of the installation section.
 
 Registry
 --------
@@ -149,7 +128,7 @@ If you don't use autowiring, you must pass the service as argument of your servi
 # ...
 MyClass:
     arguments:
-        $clientRegistry: '@ang3_odoo_api.client_registry'
+        $clientRegistry: '@ang3_odoo.client_registry'
 ```
 
 Clients
@@ -174,26 +153,41 @@ class MyService
 }
 ```
 
-Run the command ```php bin/console debug:autowiring Client``` to get the list of autowired clients.
+If the connection name is ```foo_bar```, then the autowired argument is 
+```Ang3\Component\Odoo\Client $fooBarClient```.
 
-- If the connection name is ```acme```, then the autowiring argument is 
-```Ang3\Component\Odoo\Client $acmeClient```
+- Run the command ```php bin/console debug:autowiring Client``` to get the list of autowired clients.
 
-Finally, if you don't use autowiring, you must pass the service as argument of your service:
+Of course if you don't use autowiring, you must pass the service as argument of your service:
 
 ```yaml
 # app/config/services.yml or config/services.yaml
 # ...
-MyClass:
+App\MyService:
     arguments:
-        $clientRegistry: '@ang3_odoo_api.client.<connection_name>' # Or '@ang3_odoo_api.client' for the default connection
+        $client: '@ang3_odoo.client.<connection_name>' # Or '@ang3_odoo.client' for the default connection
 ```
 
 For each client, the bundle creates a public alias following this naming convention: 
-```ang3_odoo_api.client.<connection_name>```.
+```ang3_odoo.client.<connection_name>```.
 
 ORM
 ---
+
+To enable ORM features, you must edit the file ```config/packages/ang3_odoo.yaml``` to configure it:
+
+```yaml
+ang3_odoo:
+  # ...
+  orm:
+    enabled: true # Do not forget to enable the ORM
+    managers:
+      default: # connection name to manage
+        paths: # List of directories where your Odoo objects are stored
+          - '%kernel_project_dir%/src/Odoo/Entity'
+```
+
+#### Usage
 
 *Writing in progress*
 

@@ -52,6 +52,7 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
                 ->arrayNode('orm')
+                    ->canBeEnabled()
                     ->children()
                         ->arrayNode('managers')
                             ->useAttributeAsKey('name')

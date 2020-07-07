@@ -22,8 +22,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  */
 class Ang3OdooExtension extends Extension
 {
-    private const MONOLOG_DEFINITION = 'monolog.logger.odoo';
-
     /**
      * {@inheritdoc}
      *
@@ -82,7 +80,16 @@ class Ang3OdooExtension extends Extension
         }
 
         $ormConfig = $config['orm'] ?? [];
-        $managers = $ormConfig['managers'] ?? [];
+        $ormEnabled = $ormConfig['enabled'] ?? false;
+
+        if ($ormEnabled) {
+            $this->loadOdooOrm($container, $ormConfig);
+        }
+    }
+
+    public function loadOdooOrm(ContainerBuilder $container, array $config): void
+    {
+        $managers = $config['managers'] ?? [];
         $objectManagerRegistry = $container->getDefinition(ObjectManagerRegistry::class);
         $appCache = $container->hasDefinition('cache.app') ? new Reference('cache.app') : null;
 

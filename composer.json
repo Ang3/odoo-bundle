@@ -2,7 +2,7 @@
     "name": "ang3/odoo-bundle",
     "type": "symfony-bundle",
     "description": "Symfony bundle to manage your Odoo databases.",
-    "keywords": ["odoo", "api", "client", "bundle", "dbal", "orm", "database", "persistence"],
+    "keywords": ["odoo", "api", "client", "bundle", "dbal", "orm", "database", "persistence", "object"],
     "license": "MIT",
     "authors": [
         {
@@ -18,18 +18,17 @@
     },
     "require": {
         "php": "^7.4",
-        "ang3/php-odoo-api-client": "^5.1.2",
+        "ang3/php-odoo-api-client": "^6.0",
         "ang3/php-odoo-orm": "^0.1",
-        "symfony/cache": ">=3.4.0",
-        "symfony/dependency-injection": ">=3.4.0",
-        "symfony/config": ">=3.4.0",
-        "symfony/http-kernel": ">=3.4.0",
-        "symfony/security-core": ">=3.4.0",
-        "symfony/validator": ">=3.4.0",
-        "symfony/expression-language": ">=3.4.0"
+        "symfony/cache": ">=4.2",
+        "symfony/dependency-injection": ">=4.2",
+        "symfony/config": ">=4.2",
+        "symfony/http-kernel": ">=4.2",
+        "symfony/security-core": ">=4.2",
+        "symfony/validator": ">=4.2",
+        "symfony/expression-language": ">=4.2"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "ang3/php-dev-binaries": "^1.0"
+        "roave/security-advisories": "dev-master"
     }
 }
