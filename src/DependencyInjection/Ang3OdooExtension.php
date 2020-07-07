@@ -83,11 +83,11 @@ class Ang3OdooExtension extends Extension
         $ormEnabled = $ormConfig['enabled'] ?? false;
 
         if ($ormEnabled) {
-            $this->loadOdooOrm($container, $connections, $ormConfig);
+            $this->loadOdooOrm($container, $connections, $config['default_connection'], $ormConfig);
         }
     }
 
-    public function loadOdooOrm(ContainerBuilder $container, array $connections, array $config): void
+    public function loadOdooOrm(ContainerBuilder $container, array $connections, string $defaultConnection, array $config): void
     {
         $managers = $config['managers'] ?? [];
         $objectManagerRegistry = $container->getDefinition(ObjectManagerRegistry::class);
