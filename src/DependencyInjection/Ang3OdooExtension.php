@@ -115,7 +115,7 @@ class Ang3OdooExtension extends Extension
             $container->setDefinition($objectManagerServiceName, $objectManager);
             $container->registerAliasForArgument($objectManagerServiceName, ObjectManager::class, sprintf('%sObjectManager', $connectionName));
 
-            if ($connectionName === $config['default_connection']) {
+            if ($connectionName === $defaultConnection) {
                 $container->setDefinition(ObjectManager::class, $objectManager);
                 $container->setAlias('ang3_odoo.default_object_manager', $objectManagerServiceName);
             }
