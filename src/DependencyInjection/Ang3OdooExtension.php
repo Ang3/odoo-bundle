@@ -87,7 +87,6 @@ class Ang3OdooExtension extends Extension
     {
         $managers = $config['managers'] ?? [];
         $objectManagerRegistry = $container->getDefinition(ObjectManagerRegistry::class);
-        $appCache = $container->hasDefinition('cache.app') ? new Reference('cache.app') : null;
 
         foreach ($managers as $connectionName => $managerConfig) {
             if (!isset($connections[$connectionName])) {
@@ -97,8 +96,8 @@ class Ang3OdooExtension extends Extension
             $objectManagerServiceName = sprintf('ang3_odoo.orm.object_manager.%s', $connectionName);
             $configurationServiceName = sprintf('%s.configuration', $objectManagerServiceName);
             $configuration = new Definition(OrmConfiguration::class, [
-                $appCache,
-                $appCache,
+                new Reference('cache.app'),
+                new Reference('cache.app'),
             ]);
             $container->setDefinition($configurationServiceName, $configuration);
 

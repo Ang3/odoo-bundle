@@ -28,7 +28,7 @@ class CacheWarmer implements CacheWarmerInterface
         foreach ($managers as $managerName => $managerConfig) {
             $paths = $managerConfig['paths'] ?? [];
 
-            $result = $this->objectManagerRegistry
+            $this->objectManagerRegistry
                 ->get($managerName)
                 ->getClassMetadataFactory()
                 ->getMetadataLoader()
@@ -40,6 +40,6 @@ class CacheWarmer implements CacheWarmerInterface
 
     public function isOptional()
     {
-        return false;
+        return true;
     }
 }
