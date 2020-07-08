@@ -23,7 +23,9 @@ class CacheWarmer implements CacheWarmerInterface
      */
     public function warmUp($cacheDir): array
     {
-        foreach ($this->config as $managerName => $managerConfig) {
+        $managers = $this->config['managers'] ?? [];
+
+        foreach ($managers as $managerName => $managerConfig) {
             $paths = $managerConfig['paths'] ?? [];
 
             $this->objectManagerRegistry
