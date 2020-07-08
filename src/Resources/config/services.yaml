@@ -14,8 +14,6 @@ services:
   Ang3\Bundle\OdooBundle\ORM\CacheWarmer:
     arguments:
       $config: '%ang3_odoo.orm%'
-    tags:
-      - { name: kernel.cache_warmer }
 
   # Connection clients registry
   ang3_odoo.client_registry:
