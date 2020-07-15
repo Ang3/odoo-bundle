@@ -189,12 +189,54 @@ ang3_odoo:
 
 #### Usage
 
-*Writing in progress*
+Get the manager of a connection easily by using dependency injection and autowiring:
+
+```php
+namespace App;
+
+use Ang3\Component\Odoo\ORM\ObjectManager;
+
+class MyService
+{
+    /**
+     * @var  ObjectManager
+    */
+    private $objectManager;
+
+    public function __construct(ObjectManager $objectManager)
+    {
+        $this->objectManager = $objectManager;
+    }
+}
+```
+
+If the connection name is ```foo_bar```, then the autowired argument is 
+```Ang3\Component\Odoo\ORM\ObjectManager $fooBarObjectManager```.
+By default, the default manager is autowired.
+
+- Run the command ```php bin/console debug:autowiring ObjectManager``` to get the list of autowired managers.
+
+Of course if you don't use autowiring, you must pass the service as argument of your service:
+
+```yaml
+# app/config/services.yml or config/services.yaml
+# ...
+App\MyService:
+    arguments:
+        $objectManager: '@ang3_odoo.orm.object_manager.<connection_name>' # Or '@ang3_odoo.orm.object_manager' for the default manager
+```
+
+For each manager, the bundle creates a public alias following this naming convention: 
+```ang3_odoo.orm.object_manager.<connection_name>```.
+
+Please read the documentation of the ORM package 
+[ang3/php-odoo-orm](https://github.com/Ang3/php-odoo-orm) 
+to know more information about the object manager.
 
 Validator
 ---------
 
-This bundle provides a validator according to the package 
+This bundle provides a useful validator according to the package 
 [symfony/validator](https://symfony.com/doc/current/components/validator.html) 
 to validate a record by ID, domains and/or connection. It resides to a basic annotation.
 
