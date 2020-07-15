@@ -246,10 +246,10 @@ Here are the variable passed to the evaluated expression:
 Upgrades & updates
 ==================
 
-### v1.0.0
+### v0.1.0 (beta-release)
 
 - Client registry
-- ORM
+- Beta ORM
     - Registry
     - Configuration
     - Cache
