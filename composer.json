@@ -17,8 +17,8 @@
         }
     },
     "require": {
-        "php": "^7.4",
-        "ang3/php-odoo-api-client": ">=6.0.1",
+        "php": "^7.2",
+        "ang3/php-odoo-api-client": "^6.0",
         "ang3/php-odoo-orm": "^0.1",
         "symfony/cache": ">=4.2",
         "symfony/console": ">=4.2",
@@ -30,6 +30,7 @@
         "symfony/expression-language": ">=4.2"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-master",
+        "symfony/phpunit-bridge": "^3.4 || ^4.0"
     }
 }
