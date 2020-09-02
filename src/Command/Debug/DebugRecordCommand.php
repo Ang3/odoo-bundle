@@ -19,7 +19,7 @@ class DebugRecordCommand extends Command
 
     protected static $defaultName = 'odoo:debug:record';
 
-    private ClientRegistry $clientRegistry;
+    private $clientRegistry;
 
     public function __construct(ClientRegistry $clientRegistry)
     {

@@ -18,7 +18,7 @@ class DebugModelCommand extends Command
 
     protected static $defaultName = 'odoo:debug:model';
 
-    private ClientRegistry $clientRegistry;
+    private $clientRegistry;
 
     public function __construct(ClientRegistry $clientRegistry)
     {

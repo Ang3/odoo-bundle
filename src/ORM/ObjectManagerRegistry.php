@@ -10,7 +10,7 @@ class ObjectManagerRegistry
     /**
      * @var array<string, ObjectManager>
      */
-    private array $managers = [];
+    private $managers = [];
 
     public function add(string $connectionName, ObjectManager $objectManager): void
     {

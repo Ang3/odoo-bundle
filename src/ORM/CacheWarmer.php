@@ -7,8 +7,8 @@ use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
 
 class CacheWarmer implements CacheWarmerInterface
 {
-    private ObjectManagerRegistry $objectManagerRegistry;
-    private array $config;
+    private $objectManagerRegistry;
+    private $config;
 
     public function __construct(ObjectManagerRegistry $objectManagerRegistry, array $config = [])
     {
