@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
-class OdooRecordValidator extends ConstraintValidator
+class RecordValidator extends ConstraintValidator
 {
     /**
      * @var ClientRegistry
@@ -47,8 +47,8 @@ class OdooRecordValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint): void
     {
-        if (!($constraint instanceof OdooRecord)) {
-            throw new UnexpectedTypeException($constraint, OdooRecord::class);
+        if (!($constraint instanceof Record)) {
+            throw new UnexpectedTypeException($constraint, Record::class);
         }
 
         if (null === $value || '' === $value || false === $value) {

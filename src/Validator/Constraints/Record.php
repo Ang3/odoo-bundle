@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
-class OdooRecord extends Constraint
+class Record extends Constraint
 {
     /**
      * @var string

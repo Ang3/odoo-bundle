@@ -243,14 +243,14 @@ to validate a record by ID, domains and/or connection. It resides to a basic ann
 Here is an example of an object storing the ID of a company and invoice:
 
 ```php
-use Ang3\Bundle\OdooBundle\Validator\Constraints\OdooRecord;
+use Ang3\Bundle\OdooBundle\Validator\Constraints as Odoo;
 
 class MyEntity
 {
     /**
      * @var int
      *
-     * @OdooRecord("res.company")
+     * @Odoo\Record("res.company")
      * ...
      */
     private $companyId;
@@ -258,7 +258,7 @@ class MyEntity
     /**
      * @var int
      *
-     * @OdooRecord(model="account.move", domains="expr.eq('company_id.id', this.companyId)", connection="default")
+     * @Odoo\Record(model="account.move", domains="expr.eq('company_id.id', this.companyId)", connection="default")
      * ...
      */
     private $invoiceId;
