@@ -8,7 +8,7 @@ Odoo bundle
 
 This bundle is a Symfony integration of packages 
 [ang3/php-odoo-api-client](https://packagist.org/packages/ang3/php-odoo-api-client) and 
- [ang3/php-odoo-orm](https://packagist.org/packages/ang3/php-odoo-api-client).
+ [ang3/php-odoo-orm](https://packagist.org/packages/ang3/php-odoo-orm).
 
 **Main features:**
 - Client registry
