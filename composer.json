@@ -16,10 +16,18 @@
             "Ang3\\Bundle\\OdooBundle\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bastien-wink/php-odoo-orm"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
-        "ang3/php-odoo-api-client": "^6.1",
-        "ang3/php-odoo-orm": "^0.1",
+        "ang3/php-odoo-api-client": "^7.0",
+        "ang3/php-odoo-orm": "dev-master",
         "symfony/cache": ">=4.2",
         "symfony/console": ">=4.2",
         "symfony/dependency-injection": ">=4.2",
