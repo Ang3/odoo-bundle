@@ -1,5 +1,5 @@
 {
-    "name": "ang3/odoo-bundle",
+    "name": "zangra/odoo-bundle",
     "type": "symfony-bundle",
     "description": "Symfony bundle to manage your Odoo databases.",
     "keywords": ["odoo", "api", "client", "bundle", "dbal", "orm", "database", "persistence", "object"],
@@ -13,11 +13,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Ang3\\Bundle\\OdooBundle\\": "src/"
+            "OdooBundle\\": "src/"
         }
     },
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.2.5 || ^8.1",
         "ang3/php-odoo-api-client": "^6.1",
         "ang3/php-odoo-orm": "^0.1",
         "symfony/cache": ">=4.2",
