@@ -32,5 +32,10 @@
     "require-dev": {
         "roave/security-advisories": "dev-master",
         "symfony/phpunit-bridge": "^3.4 || ^4.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "develop"
+        }
     }
 }
